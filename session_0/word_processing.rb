@@ -46,28 +46,32 @@ end
 # The function `similarity_score` takes two words and returns the
 # similarity score (an integer).
 def similarity_score(word_1, word_2)
-  i=0
-  while word_1[i] == word_2[i]
-    i = i+1
+  count=0
+  (0...([word_1.size,word_2.size].min )).each do |i|
+    if word_1[i]==word_2[i]
+           count+=1 
+    else
+           break
+    end
   end 
-  return i 
+  return count  
 end
 
 # Given a chosen word and an array of words, return an array of word(s)
 # with the maximum similarity score in the order they appear.
 def most_similar_words(chosen_word, words)
-  c=0
-  ssc = Array.new
-  words.each do |word|
-    x = similarity_score(chosen_word, word)
-    c = [c,x].max
-    ssc.push(x)
-  end 
-  nam = Array.new
-  for i in 0...words.size
-    if c == ssc[i]
-      nam.push(words[i])
-    end 
-  end 
-  return nam  
+      c=0
+      ssc = Array.new
+        words.each do |word|
+              x = similarity_score(chosen_word, word)
+              c = [c,x].max
+              ssc.push(x)
+        end 
+        nam = Array.new
+        for i in 0...words.size
+          if c == ssc[i]
+            nam.push(words[i])
+          end 
+        end 
+      return nam  
 end
