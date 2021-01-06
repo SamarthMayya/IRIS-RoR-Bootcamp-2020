@@ -40,5 +40,5 @@ def fizz_buzz(n:, x: 3, y: 5)
   if(n<0||x<=0||y<=0)
     raise ArgumentError.new
   end 
-  return (1...n+1).map { |i| i%x==0 && i%y==0 ? i = "Fizzbuzz" : (i%x==0? i = "Fizz":(i%y==0? i="Buzz" : i))}   
+  return (1...n+1).map { |i| i%x==0 && i%y==0 ? i = "Fizzbuzz" : (i%x ==0  ? i = "Fizz":(i%y == 0? i="Buzz" : i.to_s))}   
 end
