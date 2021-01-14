@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_031001) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "branch"
-    t.decimal "cgpa", precision: 2, scale: 2
+    t.decimal "cgpa", precision: 4, scale: 2
     t.text "address"
     t.integer "admission_year"
   end
