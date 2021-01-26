@@ -1,0 +1,22 @@
+<%= bootstrap_form_with(model: user, layout: :horizontal) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= form.text_field :name, placeholder: "Enter name" %>
+    <%= form.text_field :email, placeholder: "Enter a valid email address" %>
+    <%= form.password_field :password, placeholder: "Enter password" %>
+    <%= form.password_field :password_confirmation, label: "Confirm Password", placeholder: "Enter password again" %>
+
+  <div class="text-center">
+    <%= form.submit "Sign Up Now", class: 'btn btn-primary' %>
+  </div>
+<% end %>

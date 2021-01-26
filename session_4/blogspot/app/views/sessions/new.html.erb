@@ -1,0 +1,12 @@
+
+
+<h1 class="text-center">Login</h1>
+
+<%= bootstrap_form_with(url: sessions_path, layout: :horizontal, remote: false) do |f| %>
+  <%= f.email_field :email, placeholder: "Enter a valid email address"%>
+  <%= f.password_field :password, placeholder: "Enter password" %>
+
+  <div class="text-center">
+     <%= f.submit 'Login', class: 'btn btn-primary' %>
+  </div>
+<% end %>
