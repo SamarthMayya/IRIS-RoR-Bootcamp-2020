@@ -8,6 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
+document.addEventListener("turbolinks:load", () => {
+    $(".toast").toast("show");
+  })
 
 Rails.start()
 Turbolinks.start()

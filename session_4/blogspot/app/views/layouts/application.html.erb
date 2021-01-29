@@ -74,13 +74,6 @@
         </div>
       </div>
     <% end %>
-    <% if flash[:notice] || flash[:alert] %>
-      <script>
-        $('document').ready(function() {
-          $('.toast').toast('show');
-        });
-      </script>
-    <% end %>
     <div class="container">
       <%= yield %>
     </div>

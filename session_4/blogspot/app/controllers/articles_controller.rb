@@ -15,6 +15,19 @@ class ArticlesController < ApplicationController
       current_user.private_articles_remaining -= 1 
       current_user.save 
     end 
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Invoice No. #{@article.id}",
+          page_size: 'A4',
+          template: "articles/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Portrait",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+    end
   end
 
   # GET /articles/new
@@ -75,6 +88,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :topics, :tags, :content, :public)
+      params.require(:article).permit(:title, :topics, :tags, :content, :image_url, :public)
     end
 end

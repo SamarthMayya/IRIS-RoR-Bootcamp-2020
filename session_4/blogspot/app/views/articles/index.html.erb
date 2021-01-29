@@ -2,6 +2,8 @@
 
 <h1 class="text-center">Articles</h1>
 
-<% @articles.each do |article| %>
-  <%= render partial: 'card', locals: {article: article} %>
-<% end %>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @articles.each do |article| %>
+    <%= render partial: 'card', locals: {article: article} %>
+  <% end %>
+</div>

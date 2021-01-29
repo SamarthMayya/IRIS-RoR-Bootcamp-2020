@@ -1,17 +1,21 @@
-<div class="card mb-2">
-    <div class="card-body">
-    <h3 class="card-title">
-        <%= article.title %>
-    </h3>
+<div class="col mb-4">    
+    <div class="card border-light h-100">
+        <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Photos_icon_%282020%29.svg/1200px-Google_Photos_icon_%282020%29.svg.png", class: "card-img-top", alt: "No image :(") %>
+        <div class="card-body">
+        <h3 class="card-title">
+            <%= article.title %>
+        </h3>
 
-    <h5 class="card-subtitle mb-2 text-muted">
-        <%= article.topic %>
-    </h5>
+        <h5 class="card-subtitle mb-2 text-muted">
+            <%= article.topic %>
+        </h5>
 
-    <p class="card-text">
-        <%= article.content[0, 80] %>
-    </p>
+        <p class="card-text">
+            <%= article.content[0, 80] %>...
+        </p>
 
-    <%= link_to 'Read More', article, class: 'text-white btn btn-primary' %>
+        <%= link_to 'Read More', article, class: 'text-white btn btn-primary' %> |
+        <%= link_to ‘DOWNLOAD PDF’, article_path(@article, format: :pdf), class: 'text-white btn btn-primary' %>
+        </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user
     rescue_from CanCan::AccessDenied do |exception|
-      redirect_to root_url, notice: "You have #{current_user.private_articles_remaining} private articles remaining"
+      redirect_to root_url, notice: "Unauthorised to access page"
     end 
     # rescue_from CanCan::AccessDenied do |exception|
       # control = exception.subject.to_s 
