@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.text_field :image_url %>
+  <%= form.file_field :image, label: 'Or upload Image here:' %> 
   <%= form.text_field :title %>
   <%= form.text_field :topic %>
   <%= form.text_field :tags %>
