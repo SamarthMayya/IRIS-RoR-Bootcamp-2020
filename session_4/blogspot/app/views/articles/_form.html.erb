@@ -12,11 +12,7 @@
   <% end %>
 
   <%= form.text_field :image_url %>
-  <% if article.image.attached? %>
-    <%= article.image.blob.filename %>
-  <% else %>
-    <%= form.file_field :image, label: 'Or Upload Image' %>
-  <% end %>
+  <%= form.file_field :image, label: 'Or Upload Image' %>
   <%= form.text_field :title %>
   <%= form.text_field :topic %>
   <%= form.text_field :tags %>

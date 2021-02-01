@@ -8,6 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
+import bsCustomFileInput from 'bs-custom-file-input';
+$(document).on('ready turbolinks:load', function() {
+  bsCustomFileInput.init();
+})
 document.addEventListener("turbolinks:load", () => {
     $(".toast").toast("show");
   })
