@@ -1,0 +1,27 @@
+<%= form_with model: assignment do |form| %>
+    <% if assignment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this course from being saved:</h2>
+  
+        <ul>
+          <% assignment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+    <% if assignment.submission.attached? %>
+      <%= assignment.submission.blob.filename %>
+    <% else %>
+      <%= form.label :submission, "Upload Assignment" %>
+      <%= form.file_field :submission %>
+    <% end %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  

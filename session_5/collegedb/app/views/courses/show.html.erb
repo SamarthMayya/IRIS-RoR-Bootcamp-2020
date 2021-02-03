@@ -25,5 +25,10 @@
   <%= @course.credits %>
 </p>
 
+<% current_student.courses.find(@course.id).assignments.each do |assignment| %>
+  <%= assignment.name %>
+  <%= render 'submit', assignment: assignment %>
+<% end %> 
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
