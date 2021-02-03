@@ -14,14 +14,15 @@
     <div class="field">
     <% if assignment.submission.attached? %>
       <%= assignment.submission.blob.filename %>
+      <%= link_to 'Delete Submission', assignment_path, method: :delete %>
     <% else %>
       <%= form.label :submission, "Upload Assignment" %>
       <%= form.file_field :submission %>
-    <% end %>
     </div>
-
     <div class="actions">
-      <%= form.submit %>
+        <%= form.submit %>
     </div>
+    <% end %>
+
   <% end %>
   
