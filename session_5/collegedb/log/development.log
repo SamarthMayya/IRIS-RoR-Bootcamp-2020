@@ -1039,3 +1039,1027 @@ Completed 200 OK in 112ms (Views: 97.6ms | ActiveRecord: 0.8ms | Allocations: 85
   [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "registrations" ON "students"."id" = "registrations"."student_id" WHERE "registrations"."course_id" = ?[0m  [["course_id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Update (9.8ms)[0m  [1m[33mUPDATE "students" SET "branch" = ?, "admission_year" = ?, "updated_at" = ? WHERE "students"."id" = ?[0m  [["branch", "Computer Science and Engineering"], ["admission_year", 2019], ["updated_at", "2021-02-04 04:19:17.985900"], ["id", 1]]
+  [1m[36mTRANSACTION (76.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 11:45:47 +0530
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (2.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 52.3ms | Allocations: 2195)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 2264)
+Completed 500 Internal Server Error in 289ms (ActiveRecord: 9.9ms | Allocations: 12212)
+
+
+  
+ActionView::Template::Error (undefined method `courses' for nil:NilClass):
+    25:   <%= @course.credits %>
+    26: </p>
+    27: 
+    28: <% current_student.courses.find(@course.id).assignments.each do |assignment| %>
+    29:   <%= assignment.name %>
+    30:   <%= render 'submit', assignment: assignment %>
+    31: <% end %> 
+  
+app/views/courses/show.html.erb:28
+Started GET "/" for 127.0.0.1 at 2021-02-04 11:46:02 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 23.5ms | Allocations: 3029)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 33.1ms | Allocations: 3335)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 109.1ms | Allocations: 10035)
+Completed 200 OK in 135ms (Views: 122.9ms | ActiveRecord: 0.0ms | Allocations: 10994)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-04 11:46:09 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (1.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 79ms (ActiveRecord: 2.5ms | Allocations: 5928)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-04 11:46:09 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 1209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 4441)
+Completed 200 OK in 54ms (Views: 51.5ms | ActiveRecord: 0.3ms | Allocations: 4972)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 11:46:12 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (2.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  Rendered courses/show.html.erb within layouts/application (Duration: 95.4ms | Allocations: 9967)
+  Rendered layout layouts/application.html.erb (Duration: 102.6ms | Allocations: 10031)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 3.4ms | Allocations: 10957)
+
+
+  
+ActionView::Template::Error (You need to supply at least one validation):
+    25:   <%= @course.credits %>
+    26: </p>
+    27: 
+    28: <% current_student.courses.find(@course.id).assignments.each do |assignment| %>
+    29:   <%= assignment.name %>
+    30:   <%= render 'submit', assignment: assignment %>
+    31: <% end %> 
+  
+app/models/assignment.rb:8:in `<class:Assignment>'
+app/models/assignment.rb:1:in `<main>'
+app/views/courses/show.html.erb:28
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 11:53:03 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  Rendered courses/show.html.erb within layouts/application (Duration: 96.2ms | Allocations: 10288)
+  Rendered layout layouts/application.html.erb (Duration: 101.7ms | Allocations: 10352)
+Completed 500 Internal Server Error in 173ms (ActiveRecord: 1.5ms | Allocations: 17101)
+
+
+  
+ActionView::Template::Error (You need to supply at least one validation):
+    25:   <%= @course.credits %>
+    26: </p>
+    27: 
+    28: <% current_student.courses.find(@course.id).assignments.each do |assignment| %>
+    29:   <%= assignment.name %>
+    30:   <%= render 'submit', assignment: assignment %>
+    31: <% end %> 
+  
+app/models/assignment.rb:8:in `<class:Assignment>'
+app/models/assignment.rb:1:in `<main>'
+app/views/courses/show.html.erb:28
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 11:53:38 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (2.6ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 35.2ms | Allocations: 3985)
+  Rendered courses/show.html.erb within layouts/application (Duration: 260.8ms | Allocations: 19570)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 283.0ms | Allocations: 22720)
+Completed 200 OK in 375ms (Views: 276.0ms | ActiveRecord: 20.8ms | Allocations: 29987)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 11:53:51 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007f542db2dd78 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-18674-as9618.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.4ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 1079ms (ActiveRecord: 6.5ms | Allocations: 26913)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 11:53:52 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (5.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (5.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 35.4ms | Allocations: 1433)
+  Rendered courses/show.html.erb within layouts/application (Duration: 73.4ms | Allocations: 4032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 95.0ms | Allocations: 7278)
+Completed 200 OK in 122ms (Views: 103.2ms | ActiveRecord: 11.3ms | Allocations: 8219)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 11:56:51 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007f542d3786f0 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-18674-1n5qg5h.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 52ms (ActiveRecord: 0.5ms | Allocations: 4153)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 11:56:51 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mCACHE Assignment Load (0.0ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 20.0ms | Allocations: 1785)
+  Rendered courses/show.html.erb within layouts/application (Duration: 79.8ms | Allocations: 6487)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 100.0ms | Allocations: 9886)
+Completed 200 OK in 132ms (Views: 116.8ms | ActiveRecord: 0.9ms | Allocations: 11541)
+
+
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:01:34 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x0000555950d9f310 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-18674-1lsw3i5.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 208ms (ActiveRecord: 3.4ms | Allocations: 21555)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:01:35 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mCACHE Assignment Load (0.0ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 34.8ms | Allocations: 3519)
+  Rendered courses/show.html.erb within layouts/application (Duration: 138.2ms | Allocations: 16235)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 161.3ms | Allocations: 19559)
+Completed 200 OK in 195ms (Views: 172.9ms | ActiveRecord: 2.5ms | Allocations: 21366)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:01:45 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007f542d3670d0 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-18674-nj2eq7.jpg>, @original_filename="google.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 40ms (ActiveRecord: 0.4ms | Allocations: 4166)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:01:45 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (3.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mAssignment Load (0.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mCACHE Assignment Load (0.0ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 16.9ms | Allocations: 1439)
+  Rendered courses/show.html.erb within layouts/application (Duration: 78.6ms | Allocations: 5600)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 93.3ms | Allocations: 8828)
+Completed 200 OK in 107ms (Views: 98.2ms | ActiveRecord: 4.3ms | Allocations: 9770)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-04 12:02:28 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 22.0ms | Allocations: 3009)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 33.5ms | Allocations: 3428)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 141.0ms | Allocations: 10122)
+Completed 200 OK in 182ms (Views: 150.2ms | ActiveRecord: 0.0ms | Allocations: 12760)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-04 12:02:33 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 106ms (ActiveRecord: 1.0ms | Allocations: 7111)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-04 12:02:33 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 33.1ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.1ms | Allocations: 7911)
+Completed 200 OK in 86ms (Views: 63.3ms | ActiveRecord: 1.0ms | Allocations: 10690)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:02:35 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (11.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mCACHE Assignment Load (0.0ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 36.9ms | Allocations: 3983)
+  Rendered courses/show.html.erb within layouts/application (Duration: 172.4ms | Allocations: 20523)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 200.7ms | Allocations: 23659)
+Completed 200 OK in 217ms (Views: 184.7ms | ActiveRecord: 21.9ms | Allocations: 24865)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:02:41 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007fb1049cd940 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-19619-pwfugk.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 119ms (ActiveRecord: 1.3ms | Allocations: 26846)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:02:41 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:1
+  [1m[36mCACHE Course Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mCACHE Assignment Load (0.0ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:41
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 13.6ms | Allocations: 1433)
+  Rendered courses/show.html.erb within layouts/application (Duration: 69.3ms | Allocations: 5590)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.9ms | Allocations: 8816)
+Completed 200 OK in 96ms (Views: 88.6ms | ActiveRecord: 1.8ms | Allocations: 9756)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:05:20 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007fb10c21ea70 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-19619-8302z7.jpg>, @original_filename="google.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Blob Create (13.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "xmtuqc524yvz9chj0oipcl9aa4x1"], ["filename", "google.jpg"], ["content_type", "image/webp"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 14890], ["checksum", "sgk/P+sI66vwkZQIlNOVZQ=="], ["created_at", "2021-02-04 06:35:20.448432"]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Attachment Create (6.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "submission"], ["record_type", "Assignment"], ["record_id", 1], ["blob_id", 4], ["created_at", "2021-02-04 06:35:20.490349"]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mAssignment Update (13.1ms)[0m  [1m[33mUPDATE "assignments" SET "updated_at" = ? WHERE "assignments"."id" = ?[0m  [["updated_at", "2021-02-04 06:35:20.514577"], ["id", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (21.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+[36m  Disk Storage (6.0ms) [0m[32mUploaded file to key: xmtuqc524yvz9chj0oipcl9aa4x1 (checksum: sgk/P+sI66vwkZQIlNOVZQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 94006c3b-0ad5-4632-99a9-e2c36e18fae2) to Async(default) with arguments: #<GlobalID:0x00007fb104caf640 @uri=#<URI::GID gid://collegedb/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 454ms (ActiveRecord: 68.4ms | Allocations: 39776)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:05:20 +0530
+Processing by CoursesController#show as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  Parameters: {"id"=>"1"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2] Performing ActiveStorage::AnalyzeJob (Job ID: 94006c3b-0ad5-4632-99a9-e2c36e18fae2) from Async(default) enqueued at 2021-02-04T06:35:20Z with arguments: #<GlobalID:0x0000563e2012c6b8 @uri=#<URI::GID gid://collegedb/ActiveStorage::Blob/4>>
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: xmtuqc524yvz9chj0oipcl9aa4x1[0m
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2]   [1m[36mActiveStorage::Blob Update (9.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2]   [1m[36mTRANSACTION (17.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::AnalyzeJob] [94006c3b-0ad5-4632-99a9-e2c36e18fae2] Performed ActiveStorage::AnalyzeJob (Job ID: 94006c3b-0ad5-4632-99a9-e2c36e18fae2) from Async(default) in 105.0ms
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:16
+  Rendered courses/_submit.html.erb (Duration: 91.1ms | Allocations: 7681)
+  Rendered courses/show.html.erb within layouts/application (Duration: 251.5ms | Allocations: 23424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 283.4ms | Allocations: 26811)
+Completed 200 OK in 443ms (Views: 314.8ms | ActiveRecord: 5.1ms | Allocations: 43912)
+
+
+Started DELETE "/assignments/1" for 127.0.0.1 at 2021-02-04 12:05:57 +0530
+Processing by AssignmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mAssignment Load (0.7ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:12:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (6.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (16.7ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mAssignment Update (10.7ms)[0m  [1m[33mUPDATE "assignments" SET "updated_at" = ? WHERE "assignments"."id" = ?[0m  [["updated_at", "2021-02-04 06:35:58.351039"], ["id", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::VariantRecord Load (0.5ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 4]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Blob Destroy (11.8ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (24.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+[36m  Disk Storage (14.8ms) [0m[31mDeleted file from key: xmtuqc524yvz9chj0oipcl9aa4x1[0m
+[36m  Disk Storage (0.2ms) [0m[31mDeleted files by key prefix: variants/xmtuqc524yvz9chj0oipcl9aa4x1/[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:14:in `destroy'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 760ms (ActiveRecord: 98.8ms | Allocations: 19744)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:05:59 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 68.0ms | Allocations: 1439)
+  Rendered courses/show.html.erb within layouts/application (Duration: 186.0ms | Allocations: 4042)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 258.1ms | Allocations: 7289)
+Completed 200 OK in 317ms (Views: 281.2ms | ActiveRecord: 2.0ms | Allocations: 8232)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:08:01 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x0000563e201140e0 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-19619-94tpzq.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 431ms (ActiveRecord: 18.6ms | Allocations: 21578)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:08:02 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (11.7ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (4.7ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 172.3ms | Allocations: 3175)
+  Rendered courses/show.html.erb within layouts/application (Duration: 502.4ms | Allocations: 13796)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 568.2ms | Allocations: 16945)
+Completed 200 OK in 607ms (Views: 534.9ms | ActiveRecord: 48.2ms | Allocations: 18154)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:34:47 +0530
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (3.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 24.1ms | Allocations: 2195)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 2264)
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 4.5ms | Allocations: 12212)
+
+
+  
+ActionView::Template::Error (undefined method `courses' for nil:NilClass):
+    25:   <%= @course.credits %>
+    26: </p>
+    27: 
+    28: <% current_student.courses.find(@course.id).assignments.each do |assignment| %>
+    29:   <%= assignment.name %>
+    30:   <%= render 'submit', assignment: assignment %>
+    31: <% end %> 
+  
+app/views/courses/show.html.erb:28
+Started GET "/" for 127.0.0.1 at 2021-02-04 12:34:58 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 14.5ms | Allocations: 3029)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3335)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 80.2ms | Allocations: 10035)
+Completed 200 OK in 89ms (Views: 86.5ms | ActiveRecord: 0.0ms | Allocations: 10994)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-04 12:35:03 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (4.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 48ms (ActiveRecord: 5.1ms | Allocations: 5928)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-04 12:35:03 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 1209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | Allocations: 4442)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 2.0ms | Allocations: 4973)
+
+
+Started GET "/courses/new" for 127.0.0.1 at 2021-02-04 12:35:14 +0530
+Processing by CoursesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (Duration: 30.2ms | Allocations: 3713)
+  Rendered courses/new.html.erb within layouts/application (Duration: 34.5ms | Allocations: 4047)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 7178)
+Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.0ms | Allocations: 7705)
+
+
+Started POST "/courses" for 127.0.0.1 at 2021-02-04 12:35:34 +0530
+Processing by CoursesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "course"=>{"name"=>"", "course_code"=>"", "branch"=>"", "year"=>"", "credits"=>"9"}, "commit"=>"Create Course"}
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (Duration: 25.9ms | Allocations: 5228)
+  Rendered courses/new.html.erb within layouts/application (Duration: 32.1ms | Allocations: 5335)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 8501)
+Completed 422 Unprocessable Entity in 61ms (Views: 58.7ms | ActiveRecord: 0.0ms | Allocations: 10304)
+
+
+Started POST "/courses" for 127.0.0.1 at 2021-02-04 12:37:32 +0530
+Processing by CoursesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "course"=>{"name"=>"", "course_code"=>"ME15", "branch"=>"ME", "year"=>"3", "credits"=>"5"}, "commit"=>"Create Course"}
+  Rendering layout layouts/application.html.erb
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (Duration: 20.8ms | Allocations: 3127)
+  Rendered courses/new.html.erb within layouts/application (Duration: 23.7ms | Allocations: 3234)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 6398)
+Completed 422 Unprocessable Entity in 48ms (Views: 46.4ms | ActiveRecord: 0.0ms | Allocations: 7542)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-04 12:37:40 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 832)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 4061)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.2ms | Allocations: 4466)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:37:45 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (4.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 31.1ms | Allocations: 3968)
+  Rendered courses/show.html.erb within layouts/application (Duration: 172.0ms | Allocations: 20170)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 191.6ms | Allocations: 23320)
+Completed 200 OK in 204ms (Views: 185.1ms | ActiveRecord: 9.7ms | Allocations: 24265)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:37:53 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007fed659b0b40 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-3807-53qdh3.jpg>, @original_filename="google.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 126ms (ActiveRecord: 1.8ms | Allocations: 26782)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:37:53 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (3.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 15.4ms | Allocations: 1433)
+  Rendered courses/show.html.erb within layouts/application (Duration: 59.2ms | Allocations: 4032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.8ms | Allocations: 7278)
+Completed 200 OK in 97ms (Views: 89.3ms | ActiveRecord: 3.9ms | Allocations: 8219)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:38:29 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007fed64d7e048 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-3807-18j38gf.jpg>, @original_filename="google.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mAssignment Load (8.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (2.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 197ms (ActiveRecord: 21.3ms | Allocations: 21540)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:38:29 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 30.1ms | Allocations: 3169)
+  Rendered courses/show.html.erb within layouts/application (Duration: 133.8ms | Allocations: 13787)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 154.9ms | Allocations: 16937)
+Completed 200 OK in 174ms (Views: 162.1ms | ActiveRecord: 5.2ms | Allocations: 18145)
+
+
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (1.4ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.8ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (2.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:52:46 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007fed6537feb0 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-3807-122kmjk.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 110ms (ActiveRecord: 1.1ms | Allocations: 20292)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:52:47 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 19.1ms | Allocations: 2930)
+  Rendered courses/show.html.erb within layouts/application (Duration: 98.4ms | Allocations: 12893)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 183.3ms | Allocations: 16043)
+Completed 200 OK in 209ms (Views: 193.1ms | ActiveRecord: 1.3ms | Allocations: 17250)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2021-02-04 12:54:45 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 17.5ms | Allocations: 3009)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 21.0ms | Allocations: 3428)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 104.8ms | Allocations: 10122)
+Completed 200 OK in 138ms (Views: 119.8ms | ActiveRecord: 0.0ms | Allocations: 12760)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-04 12:54:48 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (1.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 95ms (ActiveRecord: 20.5ms | Allocations: 7107)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-04 12:54:49 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 43.6ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.7ms | Allocations: 7904)
+Completed 200 OK in 81ms (Views: 65.4ms | ActiveRecord: 2.8ms | Allocations: 10683)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:54:50 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (2.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 30.5ms | Allocations: 3982)
+  Rendered courses/show.html.erb within layouts/application (Duration: 158.0ms | Allocations: 18832)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 171.9ms | Allocations: 21964)
+Completed 200 OK in 205ms (Views: 183.1ms | ActiveRecord: 5.1ms | Allocations: 23170)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 12:54:56 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007f57ac9d29d8 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-4589-5hzjgd.jpg>, @original_filename="google.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 137ms (ActiveRecord: 3.0ms | Allocations: 26846)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 12:54:56 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 19.7ms | Allocations: 1433)
+  Rendered courses/show.html.erb within layouts/application (Duration: 53.4ms | Allocations: 4032)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.2ms | Allocations: 7258)
+Completed 200 OK in 80ms (Views: 63.9ms | ActiveRecord: 0.7ms | Allocations: 8198)
+
+
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? /* loading for inspect */ LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? AND "assignments"."id" = ? LIMIT ?[0m  [["course_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (2.7ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-04 15:27:01 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007f57acc3b648 @tempfile=#<Tempfile:/tmp/RackMultipart20210204-4589-11teafo.webp>, @original_filename="google.webp", @content_type="image/webp", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"google.webp\"\r\nContent-Type: image/webp\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mAssignment Load (7.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 228ms (ActiveRecord: 9.2ms | Allocations: 20275)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-04 15:27:02 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (2.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 25.0ms | Allocations: 3519)
+  Rendered courses/show.html.erb within layouts/application (Duration: 119.1ms | Allocations: 13967)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 172.9ms | Allocations: 17283)
+Completed 200 OK in 216ms (Views: 188.8ms | ActiveRecord: 4.4ms | Allocations: 19090)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-04 15:27:14 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 53.8ms | Allocations: 1132)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.5ms | Allocations: 4364)
+Completed 200 OK in 92ms (Views: 90.5ms | ActiveRecord: 0.3ms | Allocations: 4901)
+
+
