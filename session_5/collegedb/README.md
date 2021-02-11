@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(version: 2021_02_03_104635) do
     t.index ["email"], name: "index_students_on_email", unique: true
   end
 
+  create_table "submissions", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "assignment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
