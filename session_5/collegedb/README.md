@@ -1,4 +1,157 @@
 # Database Schema 
 
-I have added migrations, and migrated four tables, namely Student, Course, Registration and Assignment. For Student and Course I have assumed to have a many-to-many relationship, since every student can register for many courses, and every course can have many student, and hence, I added another table Registrations, with two attributes course_id and student_id, which are foreign keys referencing Course and Student table respectively. I have done this using the associations `belongs_to :student`, and `belongs_to :course` in the Registration model. In Student model, I have added an association `has_many :courses, through: :registrations`, that allows me to directly access the courses taken by the student, as `@student.courses`. In the Course model, I have added the association `has_many :students, through: :registrations`, that allows me to access all the students that have taken a particular course, as `@course.students`.
-In the Assignment model, since every assignment must be a part of a course, I have added the `belongs_to :course` association in the model, and in the Course model, I have added the association `has_many :assignments`, since every course can have one or more assignments.  Now, if I want to access the assignments of a particular student `@student`, all I need to do is `@student.courses.find_by(course_id: <course id>).assignments`.
+```ruby
+ActiveRecord::Schema.define(version: 2021_02_03_104635) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.integer "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "submission_deadline"
+    t.integer "weightage"
+    t.integer "course_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.string "course_code"
+    t.string "branch"
+    t.integer "year"
+    t.integer "credits"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "branch"
+    t.integer "admission_year"
+    t.string "email"
+    t.string "roll_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_students_on_email", unique: true
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+end
+``` 
+# Models, Associations and Validations
+```ruby
+class Assignment < ApplicationRecord
+  belongs_to :course
+  has_one_attached :submission 
+  validates :weightage, numericality: {
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 50
+  }
+  validate :submit_within_deadline
+
+  def submit_within_deadline 
+    if DateTime.now > submission_deadline
+      errors.add(:submission_deadline,"is long gone")
+    end  
+  end 
+end
+```
+```ruby
+class Course < ApplicationRecord
+    has_many :registrations
+    has_many :assignments
+    has_many :students, through: :registrations
+    validates :course_code, format: { with: /\A(CS|EC|ME|MN)\d\d\d\z/}
+    validates :branch, inclusion: { :in => ["Computer Science and Engineering","Mechanical Engineering","Mining Engineering","Electronics and Communication Engineering"] }
+    validates :year, numericality: {
+        greater_than_or_equal_to: 1,
+        less_than_or_equal_to: 4
+    }
+    validates :credits, numericality: {
+        greater_than_or_equal_to: 1,
+        less_than_or_equal_to: 6
+    }
+end
+```
+
+```ruby
+class Registration < ApplicationRecord
+    belongs_to :student
+    belongs_to :course 
+end
+```
+
+```ruby
+class Student < ApplicationRecord
+    has_many :registrations
+    has_many :courses, through: :registrations
+    validates :admission_year, numericality: {
+        greater_than_or_equal_to: 2017,
+        less_than_or_equal_to: 2021
+    }
+    validate :roll_number_should_begin_with_year, :roll_number_should_contain_course_code, :r_no_should_have_last_three_as_numbers
+
+    def r_no_should_have_last_three_as_numbers
+        if !(roll_number.last(3) =~ /\A\d\d\d\z/)
+            errors.add(:roll_number,"must end with three numbers")
+        end
+    end 
+
+    def roll_number_should_begin_with_year
+        if !roll_number.starts_with?(admission_year.to_s.last(2))
+            errors.add(:roll_number,"should start with year of admission") 
+        end 
+    end 
+
+    def roll_number_should_contain_course_code
+        code = branch.split.map(&:first).join
+        if code.starts_with?('CS') && !roll_number.include?('CS') 
+            errors.add(:roll_number,"should contain course code")
+        elsif code.starts_with?('ME') 
+            if branch = 'Mechanical Engineering' && !roll_number.include?('ME')
+                errors.add(:roll_number,"should contain course code")
+            elsif branch = 'Mining Engineering' && !roll_number.include?('MN')
+                errors.add(:roll_number,"should contain course code")
+            end 
+        else 
+            if code.starts_with?('EaC') && !roll_number.include?('EC')
+                errors.add(:roll_number,"should contain course code")
+            end 
+        end 
+    end 
+end
+```
