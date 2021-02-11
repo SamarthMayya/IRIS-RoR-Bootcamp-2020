@@ -10,13 +10,13 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment = Assignment.find(params[:id])
-    @assignment.submission.purge 
+    @assignment.destroy 
     redirect_to @assignment.course, notice: "Assignment deleted successfully."
   end
 
   private 
 
     def assignment_params
-      params.require(:assignment).permit(:name, :submission_deadline, :course_id, :submission)
+      params.require(:assignment).permit(:name, :submission_deadline, :course_id)
     end 
 end

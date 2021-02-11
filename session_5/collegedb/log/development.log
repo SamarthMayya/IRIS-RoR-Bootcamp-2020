@@ -2063,3 +2063,543 @@ Processing by CoursesController#index as HTML
 Completed 200 OK in 92ms (Views: 90.5ms | ActiveRecord: 0.3ms | Allocations: 4901)
 
 
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (6.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? /* loading for inspect */ LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (2.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (1.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (2.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (2.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (8.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (5.4ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (3.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2021-02-11 08:02:37 +0530
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 32.8ms | Allocations: 3024)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 41.9ms | Allocations: 3443)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 182.4ms | Allocations: 10137)
+Completed 200 OK in 223ms (Views: 192.8ms | ActiveRecord: 0.0ms | Allocations: 12716)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-11 08:02:44 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (3.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 73ms (ActiveRecord: 4.6ms | Allocations: 7178)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-11 08:02:44 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 67.4ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 93.6ms | Allocations: 7903)
+Completed 200 OK in 131ms (Views: 100.2ms | ActiveRecord: 3.0ms | Allocations: 10683)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:02:49 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (4.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (1.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 52.9ms | Allocations: 4291)
+  Rendered courses/show.html.erb within layouts/application (Duration: 174.5ms | Allocations: 19134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 186.6ms | Allocations: 22264)
+Completed 200 OK in 209ms (Views: 185.1ms | ActiveRecord: 9.0ms | Allocations: 23448)
+
+
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (0.6ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:04:12 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 34.2ms | Allocations: 1652)
+  Rendered courses/show.html.erb within layouts/application (Duration: 87.3ms | Allocations: 4254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 119.6ms | Allocations: 7482)
+Completed 200 OK in 133ms (Views: 122.6ms | ActiveRecord: 0.9ms | Allocations: 8432)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 08:04:35 +0530
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 48.6ms | Allocations: 3009)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 53.1ms | Allocations: 3428)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 279.7ms | Allocations: 10125)
+Completed 200 OK in 329ms (Views: 298.3ms | ActiveRecord: 0.0ms | Allocations: 12763)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-11 08:04:40 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (2.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 128ms (ActiveRecord: 3.3ms | Allocations: 7175)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-11 08:04:41 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 34.8ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.0ms | Allocations: 7911)
+Completed 200 OK in 84ms (Views: 74.7ms | ActiveRecord: 1.0ms | Allocations: 10690)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:04:45 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (4.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (2.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 50.6ms | Allocations: 4291)
+  Rendered courses/show.html.erb within layouts/application (Duration: 178.3ms | Allocations: 19141)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 200.4ms | Allocations: 22273)
+Completed 200 OK in 235ms (Views: 211.8ms | ActiveRecord: 9.9ms | Allocations: 23479)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (2.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.4ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:07:01 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 16.9ms | Allocations: 1652)
+  Rendered courses/show.html.erb within layouts/application (Duration: 42.0ms | Allocations: 4254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.5ms | Allocations: 7482)
+Completed 200 OK in 100ms (Views: 74.1ms | ActiveRecord: 0.9ms | Allocations: 8432)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-11 08:07:19 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 29.3ms | Allocations: 3009)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 32.0ms | Allocations: 3428)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 159.4ms | Allocations: 10122)
+Completed 200 OK in 184ms (Views: 169.8ms | ActiveRecord: 0.0ms | Allocations: 12760)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-11 08:07:23 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"samarthmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "samarthmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 140ms (ActiveRecord: 1.3ms | Allocations: 7176)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-11 08:07:23 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 49.8ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 80.0ms | Allocations: 7911)
+Completed 200 OK in 98ms (Views: 82.7ms | ActiveRecord: 1.1ms | Allocations: 10690)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:07:26 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (4.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 47.7ms | Allocations: 4290)
+  Rendered courses/show.html.erb within layouts/application (Duration: 171.9ms | Allocations: 19139)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 192.1ms | Allocations: 22271)
+Completed 200 OK in 212ms (Views: 188.8ms | ActiveRecord: 7.9ms | Allocations: 23477)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (11.5ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (64.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.1ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:10:30 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (2.4ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 53.6ms | Allocations: 3341)
+  Rendered courses/show.html.erb within layouts/application (Duration: 203.8ms | Allocations: 18401)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 224.7ms | Allocations: 21533)
+Completed 200 OK in 287ms (Views: 210.9ms | ActiveRecord: 19.1ms | Allocations: 28777)
+
+
+Started PATCH "/assignments/1" for 127.0.0.1 at 2021-02-11 08:10:41 +0530
+Processing by AssignmentsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "assignment"=>{"submission"=>#<ActionDispatch::Http::UploadedFile:0x00007fc500272460 @tempfile=#<Tempfile:/tmp/RackMultipart20210211-4823-8unriy.jpeg>, @original_filename="a320.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"assignment[submission]\"; filename=\"a320.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Assignment", "id"=>"1"}
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:3:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Blob Create (14.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "1n5f6lbhfu2rgjaeiqu4n6vv46i1"], ["filename", "a320.jpeg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 9351], ["checksum", "yzN26+T717RgCPwMdUKDoA=="], ["created_at", "2021-02-11 02:40:41.630373"]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mActiveStorage::Attachment Create (9.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "submission"], ["record_type", "Assignment"], ["record_id", 1], ["blob_id", 5], ["created_at", "2021-02-11 02:40:41.666689"]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mAssignment Update (10.8ms)[0m  [1m[33mUPDATE "assignments" SET "updated_at" = ? WHERE "assignments"."id" = ?[0m  [["updated_at", "2021-02-11 02:40:41.695043"], ["id", 1]]
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+  [1m[36mTRANSACTION (18.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/assignments_controller.rb:4:in `update'
+[36m  Disk Storage (11.1ms) [0m[32mUploaded file to key: 1n5f6lbhfu2rgjaeiqu4n6vv46i1 (checksum: yzN26+T717RgCPwMdUKDoA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1c16109d-2040-4da7-9369-a6989006a4ea) to Async(default) with arguments: #<GlobalID:0x00007fc504bccfc0 @uri=#<URI::GID gid://collegedb/ActiveStorage::Blob/5>>
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 377ms (ActiveRecord: 55.7ms | Allocations: 43986)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveStorage::Blob Load (2.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea] Performing ActiveStorage::AnalyzeJob (Job ID: 1c16109d-2040-4da7-9369-a6989006a4ea) from Async(default) enqueued at 2021-02-11T02:40:41Z with arguments: #<GlobalID:0x00007fc504ba49f8 @uri=#<URI::GID gid://collegedb/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea] [36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: 1n5f6lbhfu2rgjaeiqu4n6vv46i1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea]   [1m[36mActiveStorage::Blob Update (3.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea]   [1m[36mTRANSACTION (9.3ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1c16109d-2040-4da7-9369-a6989006a4ea] Performed ActiveStorage::AnalyzeJob (Job ID: 1c16109d-2040-4da7-9369-a6989006a4ea) from Async(default) in 80.52ms
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:10:41 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:16
+  Rendered courses/_submit.html.erb (Duration: 28.5ms | Allocations: 2351)
+  Rendered courses/show.html.erb within layouts/application (Duration: 92.8ms | Allocations: 5339)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 117.6ms | Allocations: 8584)
+Completed 200 OK in 130ms (Views: 120.7ms | ActiveRecord: 1.6ms | Allocations: 9545)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.2ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (2.5ms)[0m  [1m[32mINSERT INTO "students" ("name", "branch", "admission_year", "email", "roll_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Sourab"], ["branch", "Computer Science and Engineering"], ["admission_year", 2020], ["email", "sourabmayya@gmail.com"], ["roll_number", "201CS154"], ["created_at", "2021-02-11 02:44:17.777945"], ["updated_at", "2021-02-11 02:44:17.777945"]]
+  [1m[36mTRANSACTION (16.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mRegistration Load (0.1ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" WHERE "registrations"."student_id" = ? /* loading for inspect */ LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
+  [1m[36mRegistration Load (0.4ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRegistration Create (13.1ms)[0m  [1m[32mINSERT INTO "registrations" ("course_id", "student_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["course_id", 1], ["student_id", 2], ["created_at", "2021-02-11 02:57:01.492265"], ["updated_at", "2021-02-11 02:57:01.492265"]]
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mRegistration Load (0.7ms)[0m  [1m[34mSELECT "registrations".* FROM "registrations" WHERE "registrations"."student_id" = ? /* loading for inspect */ LIMIT ?[0m  [["student_id", 2], ["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2021-02-11 08:27:44 +0530
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 63.4ms | Allocations: 3009)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 100.7ms | Allocations: 3428)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 259.3ms | Allocations: 10122)
+Completed 200 OK in 302ms (Views: 275.8ms | ActiveRecord: 0.0ms | Allocations: 12760)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2021-02-11 08:27:50 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"sourabmayya@gmail.com", "commit"=>"Save "}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "sourabmayya@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 107ms (ActiveRecord: 1.2ms | Allocations: 7175)
+
+
+Started GET "/courses" for 127.0.0.1 at 2021-02-11 08:27:50 +0530
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:18
+  Rendered courses/index.html.erb within layouts/application (Duration: 45.3ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.8ms | Allocations: 7903)
+Completed 200 OK in 107ms (Views: 85.4ms | ActiveRecord: 3.5ms | Allocations: 10683)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 08:27:53 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:16
+  Rendered courses/_submit.html.erb (Duration: 153.6ms | Allocations: 29726)
+  Rendered courses/show.html.erb within layouts/application (Duration: 297.6ms | Allocations: 44554)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 311.4ms | Allocations: 47686)
+Completed 200 OK in 339ms (Views: 307.7ms | ActiveRecord: 6.7ms | Allocations: 48892)
+
+
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? ORDER BY "courses"."id" ASC LIMIT ?[0m  [["student_id", 2], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.7ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ? ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAssignment Load (0.6ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAssignment Load (0.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" ORDER BY "assignments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "registrations" ON "students"."id" = "registrations"."student_id" WHERE "registrations"."course_id" = ? /* loading for inspect */ LIMIT ?[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+Started DELETE "/assignments/1" for 127.0.0.1 at 2021-02-11 11:06:18 +0530
+Processing by AssignmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/assignments_controller.rb:12:in `destroy'
+  [1m[36mAssignment Load (2.3ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:12:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Destroy (10.0ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mAssignment Update (4.2ms)[0m  [1m[33mUPDATE "assignments" SET "updated_at" = ? WHERE "assignments"."id" = ?[0m  [["updated_at", "2021-02-11 05:36:18.672884"], ["id", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ? LIMIT ?[0m  [["blob_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ?[0m  [["blob_id", 5]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mActiveStorage::Blob Destroy (12.9ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/assignments_controller.rb:13:in `destroy'
+[36m  Disk Storage (13.5ms) [0m[31mDeleted file from key: 1n5f6lbhfu2rgjaeiqu4n6vv46i1[0m
+[36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/1n5f6lbhfu2rgjaeiqu4n6vv46i1/[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/assignments_controller.rb:14:in `destroy'
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 367ms (ActiveRecord: 70.6ms | Allocations: 20590)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2021-02-11 11:06:18 +0530
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:62:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_student'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "registrations" ON "courses"."id" = "registrations"."course_id" WHERE "registrations"."student_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["student_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mAssignment Load (7.5ms)[0m  [1m[34mSELECT "assignments".* FROM "assignments" WHERE "assignments"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:28
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Assignment"], ["name", "submission"], ["LIMIT", 1]]
+  ↳ app/views/courses/_submit.html.erb:15
+  Rendered courses/_submit.html.erb (Duration: 26.5ms | Allocations: 1556)
+  Rendered courses/show.html.erb within layouts/application (Duration: 83.2ms | Allocations: 4217)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 106.0ms | Allocations: 7460)
+Completed 200 OK in 116ms (Views: 102.6ms | ActiveRecord: 8.5ms | Allocations: 8402)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSubmissions (20210211053859)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSubmissions (20210211053859)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (67.3ms)[0m  [1m[35mCREATE TABLE "submissions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "assignment_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (13.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210211053859"]]
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
