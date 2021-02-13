@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
-    has_many :registrations
+    has_many :registrations, dependent: :destroy
     has_many :courses, through: :registrations
-    has_many :submissions 
+    has_many :submissions, dependent: :destroy 
     validates :admission_year, numericality: {
         greater_than_or_equal_to: 2017,
         less_than_or_equal_to: 2021
@@ -25,9 +25,9 @@ class Student < ApplicationRecord
         if code.starts_with?('CS') && !roll_number.include?('CS') 
             errors.add(:roll_number,"should contain course code")
         elsif code.starts_with?('ME') 
-            if branch = 'Mechanical Engineering' && !roll_number.include?('ME')
+            if branch == 'Mechanical Engineering' && !roll_number.include?('ME')
                 errors.add(:roll_number,"should contain course code")
-            elsif branch = 'Mining Engineering' && !roll_number.include?('MN')
+            elsif branch == 'Mining Engineering' && !roll_number.include?('MN')
                 errors.add(:roll_number,"should contain course code")
             end 
         else 
