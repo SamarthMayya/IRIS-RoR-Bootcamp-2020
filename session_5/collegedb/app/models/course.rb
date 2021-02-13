@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
-    has_many :registrations
-    has_many :assignments
+    has_many :registrations, dependent: :destroy
+    has_many :assignments, dependent: :destroy
     has_many :students, through: :registrations
     validates :course_code, format: { with: /\A(CS|EC|ME|MN)\d\d\d\z/}
     validates :branch, inclusion: { :in => ["Computer Science and Engineering","Mechanical Engineering","Mining Engineering","Electronics and Communication Engineering"] }
