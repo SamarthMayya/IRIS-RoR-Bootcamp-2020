@@ -1,6 +1,6 @@
 class Assignment < ApplicationRecord
   belongs_to :course
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
   validates :weightage, numericality: {
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 50
