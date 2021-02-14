@@ -4,6 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new 
     # All users
     can :index, Article
     

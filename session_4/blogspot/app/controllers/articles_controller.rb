@@ -11,14 +11,14 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    if  !@article.public && current_user.private_articles_remaining > 0 
+    if  !@article.public && current_user && current_user.private_articles_remaining > 0 
       current_user.private_articles_remaining -= 1 
       current_user.save 
     end 
     respond_to do |format|
       format.html
       format.pdf do
-          render pdf: "Invoice No. #{@article.id}",
+          render pdf: "Article No. #{@article.id}",
           page_size: 'A4',
           template: "articles/show.html.erb",
           layout: "pdf.html",

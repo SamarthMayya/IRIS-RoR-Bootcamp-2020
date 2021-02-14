@@ -15,6 +15,9 @@ $(document).on('ready turbolinks:load', function() {
 document.addEventListener("turbolinks:load", () => {
     $(".toast").toast("show");
   })
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+});
 
 Rails.start()
 Turbolinks.start()

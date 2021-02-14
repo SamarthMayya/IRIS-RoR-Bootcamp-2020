@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_110227) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.boolean "public"
+    t.boolean "public", default: false
     t.string "title"
     t.string "topic"
     t.string "tags"
