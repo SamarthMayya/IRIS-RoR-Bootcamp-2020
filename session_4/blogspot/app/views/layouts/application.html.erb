@@ -46,6 +46,7 @@
         </ul>
       </div>
     </nav>
+    <div class="container">
     <% if flash[:alert] %>
       <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" th:id="'toast-' + ${toastID}" data-delay="3000">
         <div class="toast-header">
@@ -74,7 +75,6 @@
         </div>
       </div>
     <% end %>
-    <div class="container">
       <%= yield %>
     </div>
   </body> 
