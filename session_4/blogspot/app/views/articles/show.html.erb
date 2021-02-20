@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center" id="show-article">
   <% if @article.image.attached? %>
     <%= image_tag(url_for(@article.image), class: "card-img-top", alt: "No image :(") %>
   <% else %>
@@ -8,7 +8,6 @@
 <h3>
   <%= @article.title %>
 </h3>
-</div>
 
 <h5>
 <%= @article.topic %>
@@ -18,8 +17,8 @@
   <%= @article.content %>
 </p>
 
-<div class="text-center">
-  <%= link_to 'Edit', edit_article_path(@article), class: 'text-white btn btn-primary' %> |
+
+  <%= link_to 'Edit', edit_article_path(@article), remote: true, class: 'text-white btn btn-primary' %> |
   <%= link_to 'Back', articles_path, class: 'text-white btn btn-primary' %> |
   <%= link_to 'Download PDF', article_path(@article, format: :pdf), class: 'text-white btn btn-primary', target: "_blank" %>
 </div>

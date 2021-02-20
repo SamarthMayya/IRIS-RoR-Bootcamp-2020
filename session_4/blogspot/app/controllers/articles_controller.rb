@@ -37,6 +37,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    respond_to do |format|
+      format.html 
+      format.js 
+    end 
   end
 
   # POST /articles
@@ -63,6 +67,7 @@ class ArticlesController < ApplicationController
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
+        format.js 
       else
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
